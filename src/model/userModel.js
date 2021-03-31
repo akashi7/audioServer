@@ -1,4 +1,4 @@
-import joi from 'joi';
+const joi = require('joi');
 
 const userSchema = {
   signUp: joi.object({
@@ -15,4 +15,4 @@ const userSchema = {
   })
 };
 
-export { userSchema };
+module.exports = userSchema;

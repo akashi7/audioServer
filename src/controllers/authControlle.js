@@ -1,9 +1,9 @@
-import { db } from '../config/database';
-import { hash, compare } from 'bcryptjs';
+const db = require('../config/database');
+const { hash, compare } = require('bcryptjs');
 
-import { sign } from 'jsonwebtoken';
+const { sign } = require('jsonwebtoken');
 
-export function userSignUp(req, res) {
+exports.userSignUp = (req, res) => {
   const { username, password, confirmPassword } = req.body;
 
   if (password !== confirmPassword) {
@@ -58,10 +58,10 @@ export function userSignUp(req, res) {
       }
     });
   }
-}
+};
 
 
-export function userLogin(req, res) {
+exports.userLogin = (req, res) => {
   const { username, password } = req.body;
 
   db.getConnection((err, connection) => {
@@ -114,4 +114,4 @@ export function userLogin(req, res) {
   });
 
 
-}
+};

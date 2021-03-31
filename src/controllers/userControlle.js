@@ -1,6 +1,6 @@
-import { db } from '../config/database';
+const db = require('../config/database');
 
-export function userCreatePlaylist(req, res) {
+exports.userCreatePlaylist = (req, res) => {
 
   const { playListName } = req.query;
   const { username } = req.user;
@@ -24,9 +24,9 @@ export function userCreatePlaylist(req, res) {
     }
   });
 
-}
+};
 
-export function addSongToPlayList(req, res) {
+exports.addSongToPlayList = (req, res) => {
 
   const { playListId, songId } = req.query;
 
@@ -55,9 +55,9 @@ export function addSongToPlayList(req, res) {
       });
     }
   });
-}
+};
 
-export function deletePlayList(req, res) {
+exports.deletePlayList = (req, res) => {
   const { playListId } = req.query;
   db.getConnection((err, connection) => {
     if (err) throw err;
@@ -74,9 +74,9 @@ export function deletePlayList(req, res) {
       });
     }
   });
-}
+};
 
-export function userSearchSong(req, res) {
+exports.userSearchSong = (req, res) => {
   const { songName } = req.query;
   db.getConnection((err, connection) => {
     if (err) throw err;
@@ -101,9 +101,9 @@ export function userSearchSong(req, res) {
       });
     }
   });
-}
+};
 
-export function userViewSong(req, res) {
+exports.userViewSong = (req, res) => {
   const { songId } = req.query;
 
   db.getConnection((err, connection) => {
@@ -126,9 +126,9 @@ export function userViewSong(req, res) {
 
   });
 
-}
+};
 
-export function userViewAllSongs(req, res) {
+exports.userViewAllSongs = (req, res) => {
   db.getConnection((err, connection) => {
     if (err) throw err;
     else {
@@ -144,9 +144,9 @@ export function userViewAllSongs(req, res) {
       });
     }
   });
-}
+};
 
-export function viewProfile(req, res) {
+exports.viewProfile = (req, res) => {
   const { id } = req.user;
   db.getConnection((err, connection) => {
     if (err) throw err;
@@ -163,4 +163,4 @@ export function viewProfile(req, res) {
       });
     }
   });
-}
+};

@@ -1,10 +1,10 @@
-import { json, urlencoded } from 'express';
+const { json, urlencoded } = require('express');
 
-import cors from 'cors';
+const cors = require('cors');
 
-import auth from './routes/authRoutes';
-import user from './routes/userRoutes';
-import admin from './routes/adminRoutes';
+const auth = require('./routes/authRoutes');
+const user = require('./routes/userRoutes');
+const admin = require('./routes/adminRoutes');
 
 const app = require('express')();
 

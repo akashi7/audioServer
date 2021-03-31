@@ -1,5 +1,5 @@
-import { createPool } from 'mysql';
-import { config } from 'dotenv';
+const { createPool } = require('mysql');
+const { config } = require('dotenv');
 
 config();
 
@@ -11,5 +11,5 @@ const db = createPool({
   password: process.env.PASSWORD
 });
 
-export { db };
+module.exports = db;
 

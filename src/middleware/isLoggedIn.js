@@ -1,9 +1,9 @@
-import { verify } from 'jsonwebtoken';
-import { config } from 'dotenv';
+const { verify } = require('jsonwebtoken');
+const { config } = require('dotenv');
 
 config();
 
-export function requiredLogin(req, res, next) {
+exports.requiredLogin = (req, res, next) => {
   const token = req.headers.authorization.replace("Bearer ", "");
 
   verify(token, `${process.env.JWT_SECRET}`, (err, decoded) => {
@@ -19,4 +19,4 @@ export function requiredLogin(req, res, next) {
     }
   });
 
-}
+};

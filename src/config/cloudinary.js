@@ -1,5 +1,5 @@
-import { v2 as cloudinary } from 'cloudinary';
-import { config } from 'dotenv';
+const cloudinary = require('cloudinary').v2;
+const { config } = require('dotenv');
 config();
 
 
@@ -10,6 +10,6 @@ cloudinary.config({
 });
 
 
-export { cloudinary };
+module.exports = cloudinary;
 
 

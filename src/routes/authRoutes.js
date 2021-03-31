@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { userSignUp, userLogin } from '../controllers/authControlle';
-import { signUpValidation, loginValidation } from '../middleware/helper';
+const { Router } = require('express');
+const { userSignUp, userLogin } = require('../controllers/authControlle');
+const { signUpValidation, loginValidation } = require('../middleware/helper');
 
 const router = Router();
 
@@ -11,4 +11,4 @@ router.post('/Login', loginValidation, userLogin);
 
 
 
-export default router;
+module.exports = router;

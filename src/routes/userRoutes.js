@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { userCreatePlaylist, addSongToPlayList, deletePlayList, userSearchSong, userViewSong, userViewAllSongs, viewProfile } from '../controllers/userControlle';
-import { requiredLogin } from '../middleware/isLoggedIn';
+const { Router } = require('express');
+const { userCreatePlaylist, addSongToPlayList, deletePlayList, userSearchSong, userViewSong, userViewAllSongs, viewProfile } = require('../controllers/userControlle');
+const { requiredLogin } = require('../middleware/isLoggedIn');
 
 
 const router = Router();
@@ -19,4 +19,4 @@ router.get('/viewProfile', requiredLogin, viewProfile);
 
 
 
-export default router;
+module.exports = router;

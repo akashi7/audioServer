@@ -1,7 +1,7 @@
-import { userSchema } from '../model/userModel';
+const userSchema = require('../model/userModel');
 
 
-export function signUpValidation(req, res, next) {
+exports.signUpValidation = (req, res, next) => {
   const { username, password } = req.body;
 
   const { error } = userSchema.signUp.validate({
@@ -14,9 +14,9 @@ export function signUpValidation(req, res, next) {
       error: error.message
     });
   } else next();
-}
+};
 
-export function loginValidation(req, res, next) {
+exports.loginValidation = (req, res, next) => {
   const { username, password } = req.body;
 
   const { error } = userSchema.login.validate({
@@ -29,4 +29,4 @@ export function loginValidation(req, res, next) {
       error: error.message
     });
   } else next();
-}
+};

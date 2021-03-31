@@ -1,6 +1,6 @@
-import { db } from '../config/database';
-import { cloudinary } from '../config/cloudinary';
-import { config } from 'dotenv';
+const db = require('../config/database');
+const cloudinary = require('../config/cloudinary');
+const { config } = require('dotenv');
 config();
 
 
@@ -26,7 +26,7 @@ const uploadSong = async (audio) => {
 
 
 
-export async function adminUploadSong(req, res) {
+exports.adminUploadSong = async (req, res) => {
   const { songName, genre, sangBy } = req.body;
   const { audio = '' } = req.files || {};
 
@@ -61,9 +61,9 @@ export async function adminUploadSong(req, res) {
       message: "Error Uploading file due to wrong File extension Or have internet Error"
     });
   }
-}
+};
 
-export function adminViewUsers(req, res) {
+exports.adminViewUsers = (req, res) => {
   db.getConnection((err, connection) => {
     if (err) throw err;
     else {
@@ -79,4 +79,4 @@ export function adminViewUsers(req, res) {
       });
     }
   });
-}
+};

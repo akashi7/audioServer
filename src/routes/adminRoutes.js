@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import fileUpload from 'express-fileupload';
-import { adminUploadSong, adminViewUsers } from '../controllers/adminControlle';
-import { requiredLogin } from '../middleware/isAdmin';
+const { Router } = require('express');
+const fileUpload = require('express-fileupload');
+const { adminUploadSong, adminViewUsers } = require('../controllers/adminControlle');
+const { requiredLogin } = require('../middleware/isAdmin');
 
 const router = Router();
 
@@ -23,4 +23,4 @@ router.get('/all', requiredLogin, adminViewUsers);
 
 
 
-export default router;
+module.exports = router;
