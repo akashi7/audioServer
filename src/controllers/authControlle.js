@@ -85,7 +85,7 @@ exports.userLogin = (req, res) => {
           else {
             if (username === 'admin') {
               const { username, id, isadmin } = result[0];
-              const token = sign({ username, id, isadmin }, process.env.JWT_SECRET, { expiresIn: '2h' });
+              const token = sign({ username, id, isadmin }, process.env.JWT_SECRET, { expiresIn: '112h' });
               res.send({
                 status: 700,
                 token,
@@ -95,7 +95,7 @@ exports.userLogin = (req, res) => {
             }
             else {
               const { username, id, isadmin } = result[0];
-              const token = sign({ username, id, isadmin }, process.env.JWT_SECRET, { expiresIn: '2h' });
+              const token = sign({ username, id, isadmin }, process.env.JWT_SECRET, { expiresIn: '112h' });
 
               res.send({
                 status: 200,

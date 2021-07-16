@@ -7,12 +7,10 @@ config();
 
 const uploadSong = async (audio) => {
 
-  console.log('audio', audio);
   try {
 
     if (audio.mimetype === "audio/mpeg") {
       const music = await cloudinary.uploader.upload(audio.tempFilePath, { resource_type: "auto" }, (result) => result);
-      console.log('music', music);
       audio = music.secure_url;
       return audio;
     }

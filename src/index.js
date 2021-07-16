@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.use(cors());
 app.use(require('morgan')('dev'));
 app.use(json());
-app.use(urlencoded({ extended: false }));
+app.use(urlencoded({ extended: true }));
 
 app.use('/auth', auth);
 app.use('/user', user);
